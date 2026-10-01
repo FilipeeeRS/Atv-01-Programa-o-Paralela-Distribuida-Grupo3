@@ -27,3 +27,4 @@ class Misturadora extends Thread {
             resultado[k++] = b[j++];
         }
     }
+}
