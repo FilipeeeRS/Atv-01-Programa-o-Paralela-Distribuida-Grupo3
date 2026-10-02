@@ -1,14 +1,14 @@
 class Misturadora extends Thread {
-    private final int[] a, b;
-    private int[] resultado;
+    private final byte[] a, b;
+    private byte[] resultado;
 
-    public Misturadora(int[] a, int[] b) {
+    public Misturadora(byte[] a, byte[] b) {
         this.a = a;
         this.b = b;
     }
     
     public void run() {
-        resultado = new int[a.length + b.length];
+        resultado = new byte[a.length + b.length];
         int i = 0, j = 0, k = 0;
 
         while (i < a.length && j < b.length) {
@@ -26,5 +26,9 @@ class Misturadora extends Thread {
         while (j < b.length) {
             resultado[k++] = b[j++];
         }
+    }
+
+    public byte[] getResultado() {
+        return resultado;
     }
 }

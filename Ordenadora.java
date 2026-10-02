@@ -1,7 +1,7 @@
 class Ordenadora extends Thread { // Processo independente. Varios Ornedadores podem ser executados em paralelo
-    private int[] pedaco;
+    private byte[] pedaco;
 
-    public Ordenadora(int[] pedaco) { // Construtor
+    public Ordenadora(byte[] pedaco) { // Construtor
         this.pedaco = pedaco;
     }
 
@@ -9,12 +9,12 @@ class Ordenadora extends Thread { // Processo independente. Varios Ornedadores p
         mergeSort(pedaco, 0, pedaco.length - 1);
     }
 
-    public int[] getPedaco() { // Getter
+    public byte[] getPedaco() { // Getter
         return this.pedaco;
     }
 
     //Divisao Recursiva
-    private void mergeSort(int[] v, int inicio, int fim) {
+    private void mergeSort(byte[] v, int inicio, int fim) {
         if (inicio >= fim) return; // Condicao de parada
         int meio = (inicio + fim) / 2; // Pega o pedaço e divide
         mergeSort(v, inicio, meio); // Ordena esq
@@ -22,8 +22,8 @@ class Ordenadora extends Thread { // Processo independente. Varios Ornedadores p
         intercalar(v, inicio, meio, fim); // Costurar as metades de volta
     }
 
-    private void intercalar(int[] v, int inicio, int meio, int fim) {
-        int[] aux = new int [fim - inicio + 1]; // Vetor temporario com tamanho exato da soma
+    private void intercalar(byte[] v, int inicio, int meio, int fim) {
+        byte[] aux = new byte [fim - inicio + 1]; // Vetor temporario com tamanho exato da soma
         int i = inicio; // Inicio esq
         int j = meio + 1; // Inicio dir
         int k = 0;
